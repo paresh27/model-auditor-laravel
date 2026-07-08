@@ -1,0 +1,55 @@
+{
+    "name": "paresh27/model-auditor-laravel",
+    "description": "Laravel integration for paresh27/model-auditor — audit Eloquent model changes",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "audit", "eloquent"],
+    "authors": [
+        { "name": "Paresh", "email": "you@example.com" }
+    ],
+    "require": {
+        "php": "^8.3",
+        "paresh27/model-auditor": "dev-main",
+        "illuminate/database": "^10.0|^11.0|^12.0",
+        "illuminate/support": "^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^4.7",
+        "pestphp/pest-plugin-laravel": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Paresh27\\ModelAuditorLaravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Paresh27\\ModelAuditorLaravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Paresh27\\ModelAuditorLaravel\\ModelAuditorServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "pest"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": [
+    {
+        "type": "path",
+        "url": "../model-auditor"
+    }
+],
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "pestphp/pest-plugin-laravel": true
+        }
+    }
+}
