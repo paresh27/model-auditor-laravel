@@ -49,10 +49,18 @@
 "repositories": [
     { "type": "vcs", "url": "https://github.com/paresh27/model-auditor" }
 ],
-    "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "pestphp/pest-plugin-laravel": true
+"config": {
+    "allow-plugins": {
+        "pestphp/pest-plugin": true,
+        "pestphp/pest-plugin-laravel": true
+    },
+    "policy": {
+        "advisories": {
+            "block": false
+        },
+        "abandoned": {
+            "block": false
         }
     }
+}
 }
