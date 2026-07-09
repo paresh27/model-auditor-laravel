@@ -62,3 +62,14 @@ it('does not record anything when nothing actually changed', function () {
 
     expect($auditor->history())->toHaveCount(1); // only the create
 });
+
+it('excludes timestamps from audit changes by default', function () {
+    $post = TestPost::create(['title' => 'Hello']);
+
+    $auditor = $this->app->make(Auditor::class);
+    $record = $auditor->history()[0];
+
+    expect($record->changes)->not->toHaveKey('created_at');
+    expect($record->changes)->not->toHaveKey('updated_at');
+    expect($record->changes)->toHaveKey('title');
+});

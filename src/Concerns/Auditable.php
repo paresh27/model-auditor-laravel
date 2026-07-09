@@ -10,26 +10,28 @@ trait Auditable
 {
     public static function bootAuditable(): void
     {
-        static::observe(AuditableObserver::class);
+        static::created(function ($model) {
+            app(AuditableObserver::class)->created($model);
+        });
+
+        static::updated(function ($model) {
+            app(AuditableObserver::class)->updated($model);
+        });
+
+        static::deleted(function ($model) {
+            app(AuditableObserver::class)->deleted($model);
+        });
     }
 
-    /**
-     * Fields to exclude from auditing (e.g. passwords, tokens).
-     * Consumers can override this on their model.
-     *
-     * @return array<int, string>
-     */
-    public function auditExcluded(): array
-    {
-        return property_exists($this, 'auditExcluded')
-            ? $this->auditExcluded
-            : ['password', 'remember_token'];
-    }
+// src/Concerns/Auditable.php
 
-    /**
-     * A human-readable subject identifier for this model instance,
-     * e.g. "App\Models\User#42".
-     */
+public function auditExcluded(): array
+{
+    return property_exists($this, 'auditExcluded')
+        ? $this->auditExcluded
+        : ['password', 'remember_token', 'created_at', 'updated_at'];
+}
+
     public function auditSubject(): string
     {
         return static::class.'#'.$this->getKey();
