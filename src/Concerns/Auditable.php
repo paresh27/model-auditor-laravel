@@ -23,14 +23,14 @@ trait Auditable
         });
     }
 
-// src/Concerns/Auditable.php
+    // src/Concerns/Auditable.php
 
-public function auditExcluded(): array
-{
-    return property_exists($this, 'auditExcluded')
-        ? $this->auditExcluded
-        : ['password', 'remember_token', 'created_at', 'updated_at'];
-}
+    public function auditExcluded(): array
+    {
+        return property_exists($this, 'auditExcluded')
+            ? $this->auditExcluded
+            : ['password', 'remember_token', 'created_at', 'updated_at'];
+    }
 
     public function auditSubject(): string
     {

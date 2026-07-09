@@ -34,11 +34,11 @@ class TestCase extends Orchestra
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         // Test-only fixture table — not a real package migration
-Schema::create('test_posts', function (Blueprint $table) {
-    $table->id();
-    $table->string('title');
-    $table->string('password')->nullable();
-    $table->timestamps();
-});
+        Schema::create('test_posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('password')->nullable();
+            $table->timestamps();
+        });
     }
 }
