@@ -5,7 +5,7 @@ use Paresh27\ModelAuditor\AuditRecord;
 use Paresh27\ModelAuditorLaravel\Storage\EloquentAuditStorage;
 
 it('persists a record and reads it back', function () {
-    $storage = new EloquentAuditStorage();
+    $storage = new EloquentAuditStorage;
 
     $record = new AuditRecord(
         subject: 'TestPost#1',

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Paresh27\ModelAuditorLaravel\Concerns;
 
 use Paresh27\ModelAuditorLaravel\Observers\AuditableObserver;
@@ -14,6 +16,8 @@ trait Auditable
     /**
      * Fields to exclude from auditing (e.g. passwords, tokens).
      * Consumers can override this on their model.
+     *
+     * @return array<int, string>
      */
     public function auditExcluded(): array
     {

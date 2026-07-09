@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('publishes config and migration, and runs migrations when confirmed', function () {
     $this->artisan('model-auditor:install')
         ->expectsConfirmation('Run migrations now?', 'yes')

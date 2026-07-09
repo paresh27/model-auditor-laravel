@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Paresh27\ModelAuditorLaravel\Tests;
 
 use Illuminate\Database\Schema\Blueprint;

@@ -1,0 +1,12 @@
+# phpstan.neon
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 6
+    paths:
+        - src
+    ignoreErrors:
+        -
+            message: '#Trait Paresh27\\ModelAuditorLaravel\\Concerns\\Auditable is used zero times#'
+            path: src/Concerns/Auditable.php
