@@ -40,8 +40,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "illuminate/contracts:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-update
-          composer update --prefer-dist --no-interaction
+          composer require "illuminate/contracts:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-update --dev
+          composer update --prefer-dist --no-interaction --no-audit
 
       - name: Check code style
         run: ./vendor/bin/pint --test
